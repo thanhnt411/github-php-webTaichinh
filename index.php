@@ -1,4 +1,5 @@
 <?php
+require_once "config.php";
 require_once "controllers/PageController/slidersControllers.php";
 $slider = new SlidersController($conn);
 $result = $slider->index();

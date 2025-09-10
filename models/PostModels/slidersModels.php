@@ -9,7 +9,8 @@ class SlidersModels
 
     public function getAll()
     {
-        return $this->conn->query("SELECT * FROM sliders");
+        $stmt = $this->conn->query("SELECT * FROM sliders");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getById($id)
@@ -17,7 +18,7 @@ class SlidersModels
         $stmt = $this->conn->prepare("SELECT * FROM sliders WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function add() {}
