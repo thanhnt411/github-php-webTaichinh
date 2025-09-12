@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . "/../../../config.php";
+require_once __DIR__ . "/../../../controllers/PageController/trainingsControllers.php";
+require_once __DIR__ . "/../../../models/PostModels/trainingsModels.php";
+
+$trainingsControllers = new TrainingsControllers($conn);
+$result = $trainingsControllers->index();
+?>
 <!--START Training-->
 <div class="training">
     <div class="training__container container">
@@ -18,195 +26,49 @@
 
             <div thumbsSlider="" class="training__content swiper JS-training">
                 <div class="training__wrapper swiper-wrapper">
-                    <div class="training__slide swiper-slide">
-                        <div class="training__slide-box">
-                            Kế toán thực hành Excel
+                    <?php foreach ($result as $key => $rows): ?>
+                        <div class="training__slide swiper-slide training__slide-<?= $key + 1 ?>">
+                            <?= $rows['training_course'] ?>
                         </div>
-                    </div>
-                    <div class="training__slide swiper-slide">
-                        Kế toán chuyên sâu
-                    </div>
-                    <div class="training__slide swiper-slide">
-                        Kế toán tổng hợp
-                    </div>
-                    <div class="training__slide swiper-slide">
-                        Kiểm toán NB/KSNB
-                    </div>
-                    <div class="training__slide swiper-slide">
-                        <div class="training__slide-box">
-                            Kế toán thực hành Excel
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
             <div class="swiper JS-training2">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="training__box">
-                            <div class="training__background">
-                                <img
-                                    class="training__img"
-                                    src="./assets/img/training-background.png"
-                                    alt="" />
-                            </div>
-                            <div class="training__info">
-                                <h3 class="content__title">Kế toán chuyên sâu</h3>
-                                <p class="content__sub-title">
-                                    Kế toán SAB đào tạo bài bản và chuyên nghiệp, đảm bảo
-                                    sự thành thạo trong nghiệp vụ kế toán cho các nhân
-                                    viên cung cấp cho đơn vị Khách hàng;
-                                </p>
-                                <h4 class="training__heading">
-                                    Học phí:
-                                    <span class="training__sub-heading">2.699.000đ</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Hình thức học:
-                                    <span class="training__sub-heading">Online và Offline</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Thời gian:
-                                    <span class="training__sub-heading">19h00 tối 2, 4, 6 hằng tuần</span>
-                                </h4>
-                                <div class="content__contact">
-                                    <a href="" class="content__contact-link">Xem chi tiết</a>
+                    <?php foreach ($result as $key => $rows): ?>
+                        <div class="swiper-slide swiper-slide-<?= $key + 1 ?>">
+                            <div class="training__box">
+                                <div class="training__background">
+                                    <img
+                                        class="training__img"
+                                        src="<?= $rows['img'] ?>"
+                                        alt="" />
+                                </div>
+                                <div class="training__info">
+                                    <h3 class="content__title"><?= $rows['training_course'] ?></h3>
+                                    <p class="content__sub-title">
+                                        <?= $rows['descripiton'] ?>
+                                    </p>
+                                    <h4 class="training__heading">
+                                        Học phí:
+                                        <span class="training__sub-heading"> <?= $rows['tuition_fee'] ?></span>
+                                    </h4>
+                                    <h4 class="training__heading">
+                                        Hình thức học:
+                                        <span class="training__sub-heading"> <?= $rows['study_mode'] ?></span>
+                                    </h4>
+                                    <h4 class="training__heading">
+                                        Thời gian:
+                                        <span class="training__sub-heading"> <?= $rows['class_schedule'] ?></span>
+                                    </h4>
+                                    <div class="content__contact">
+                                        <a href="" class="content__contact-link">Xem chi tiết</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="training__box">
-                            <div class="training__background">
-                                <img
-                                    class="training__img"
-                                    src="./assets/img/training-background.png"
-                                    alt="" />
-                            </div>
-                            <div class="training__info">
-                                <h3 class="content__title">Kế toán chuyên sâu</h3>
-                                <p class="content__sub-title">
-                                    Kế toán SAB đào tạo bài bản và chuyên nghiệp, đảm bảo
-                                    sự thành thạo trong nghiệp vụ kế toán cho các nhân
-                                    viên cung cấp cho đơn vị Khách hàng;
-                                </p>
-                                <h4 class="training__heading">
-                                    Học phí:
-                                    <span class="training__sub-heading">2.699.000đ</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Hình thức học:
-                                    <span class="training__sub-heading">Online và Offline</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Thời gian:
-                                    <span class="training__sub-heading">19h00 tối 2, 4, 6 hằng tuần</span>
-                                </h4>
-                                <div class="content__contact">
-                                    <a href="" class="content__contact-link">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="training__box">
-                            <div class="training__background">
-                                <img
-                                    class="training__img"
-                                    src="./assets/img/training-background.png"
-                                    alt="" />
-                            </div>
-                            <div class="training__info">
-                                <h3 class="content__title">Kế toán chuyên sâu</h3>
-                                <p class="content__sub-title">
-                                    Kế toán SAB đào tạo bài bản và chuyên nghiệp, đảm bảo
-                                    sự thành thạo trong nghiệp vụ kế toán cho các nhân
-                                    viên cung cấp cho đơn vị Khách hàng;
-                                </p>
-                                <h4 class="training__heading">
-                                    Học phí:
-                                    <span class="training__sub-heading">2.699.000đ</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Hình thức học:
-                                    <span class="training__sub-heading">Online và Offline</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Thời gian:
-                                    <span class="training__sub-heading">19h00 tối 2, 4, 6 hằng tuần</span>
-                                </h4>
-                                <div class="content__contact">
-                                    <a href="" class="content__contact-link">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="training__box">
-                            <div class="training__background">
-                                <img
-                                    class="training__img"
-                                    src="./assets/img/training-background.png"
-                                    alt="" />
-                            </div>
-                            <div class="training__info">
-                                <h3 class="content__title">Kế toán chuyên sâu</h3>
-                                <p class="content__sub-title">
-                                    Kế toán SAB đào tạo bài bản và chuyên nghiệp, đảm bảo
-                                    sự thành thạo trong nghiệp vụ kế toán cho các nhân
-                                    viên cung cấp cho đơn vị Khách hàng;
-                                </p>
-                                <h4 class="training__heading">
-                                    Học phí:
-                                    <span class="training__sub-heading">2.699.000đ</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Hình thức học:
-                                    <span class="training__sub-heading">Online và Offline</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Thời gian:
-                                    <span class="training__sub-heading">19h00 tối 2, 4, 6 hằng tuần</span>
-                                </h4>
-                                <div class="content__contact">
-                                    <a href="" class="content__contact-link">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="training__box">
-                            <div class="training__background">
-                                <img
-                                    class="training__img"
-                                    src="./assets/img/training-background.png"
-                                    alt="" />
-                            </div>
-                            <div class="training__info">
-                                <h3 class="content__title">Kế toán chuyên sâu</h3>
-                                <p class="content__sub-title">
-                                    Kế toán SAB đào tạo bài bản và chuyên nghiệp, đảm bảo
-                                    sự thành thạo trong nghiệp vụ kế toán cho các nhân
-                                    viên cung cấp cho đơn vị Khách hàng;
-                                </p>
-                                <h4 class="training__heading">
-                                    Học phí:
-                                    <span class="training__sub-heading">2.699.000đ</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Hình thức học:
-                                    <span class="training__sub-heading">Online và Offline</span>
-                                </h4>
-                                <h4 class="training__heading">
-                                    Thời gian:
-                                    <span class="training__sub-heading">19h00 tối 2, 4, 6 hằng tuần</span>
-                                </h4>
-                                <div class="content__contact">
-                                    <a href="" class="content__contact-link">Xem chi tiết</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

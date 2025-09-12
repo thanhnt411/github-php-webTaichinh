@@ -28,7 +28,7 @@ class StudentController
 
     public function editForm($id)
     {
-        $result = $this->model->getById($id);
+        $this->model->getById($id);
         include "views/student_edit.php";
     }
 

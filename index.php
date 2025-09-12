@@ -1,9 +1,3 @@
-<?php
-require_once "config.php";
-require_once "controllers/PageController/slidersControllers.php";
-$slider = new SlidersController($conn);
-$result = $slider->index();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +31,7 @@ $result = $slider->index();
     <div class="content">
       <?php
       include __DIR__ . "/views/page/home/about.php";
+      include __DIR__ . "/views/page/home/about_box.php";
       include __DIR__ . "/views/page/home/service.php";
       include __DIR__ . "/views/page/home/training.php";
       include __DIR__ . "/views/page/home/product.php";

@@ -1,13 +1,13 @@
 <?php
 session_start();
 require_once __DIR__ . '/../../config.php';
-require_once __DIR__ . '/../../controllers/AdminAuthControllers.php';
+require_once __DIR__ . '/../../controllers/AdminControllers/AdminAuthControllers.php';
 require_once __DIR__ . "/../../models/AdminModels.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $adminName = $_POST["adminName"];
     $pwd = $_POST["pwd"];
-    $controller = new AdminAuthControllers($pdo);
+    $controller = new AdminAuthControllers($conn);
     $controller->login($adminName, $pwd);
 }
 ?>

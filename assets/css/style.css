@@ -229,7 +229,6 @@
 .banner__background--first {
     width: 100%;
     height: 600px;
-    background-image: url("../img/business-background-first.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 154px 0 139px;
@@ -238,7 +237,6 @@
 .banner__background--second {
     width: 100%;
     height: 600px;
-    background-image: url("../img/business-background-second.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 154px 0 139px;
@@ -517,7 +515,6 @@
 .about__video-box {
     width: 505px;
     height: 314px;
-    background-image: url("../img/about-video-background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

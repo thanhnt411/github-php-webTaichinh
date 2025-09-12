@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/../../models/PostModels/slidersModels.php";
-class SlidersController
+class slidersController
 {
     private $model;
     public function __construct($conn)
@@ -11,11 +11,6 @@ class SlidersController
     public function index()
     {
         $result = $this->model->getAll();
+        return $result;
     }
-
-    public function delete() {}
-
-    public function update() {}
-
-    public function create() {}
 }
